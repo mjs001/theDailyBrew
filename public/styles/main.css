@@ -167,10 +167,10 @@ h2, h3, h4, h5, h6, p {
     left: 5px;
 }
 
-.repoLink {
+.footer-text a{
     color: #FFFDEB;
 }
-.repoLink:hover{
+.footer-text a:hover{
     color: #F7F0FA;
     text-decoration: underline;
 }

@@ -20,9 +20,20 @@
     </div>
     <!-- end of title -->
 
-    <!-- TITLE CONTAINER -->
+    <!-- category btns -->
+    <div class="categoryContainer">
+      <form method="post" action="/category">
+        <legend>Category:</legend>
+        <fieldset>
+          <input type="radio" name="category" value="general">general</input>
+          <input type="radio" name="category" value="technology">technology</input>
+          <input type="radio" name="category" value="business">business</input>
+          <button class="categoryBtn" type="submit">submit</button>
+        </fieldset>
+      </form>
+    </div>
 
-    <!-- <div class="cardContainer"> -->
+    <!-- CAROUSEL START -->
     <div class="carousel">
       <div class="carousel__cards">
         <% if (locals.data) { %>
@@ -56,7 +67,6 @@
             </div>
           </div>
         </div>
-        <!-- </div> -->
         <% }) %>
         <% } %>
       </div>
