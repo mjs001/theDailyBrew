@@ -1,0 +1,74 @@
+<!-- COLOR PALETTE https://colorhunt.co/palette/a75d5dd3756bf0997dffc3a1 -->
+
+
+<%- include('./partials/header.ejs') %>
+
+
+<body>
+
+  <div class="container">
+    <!-- TITLE -->
+
+    <div class="title">
+      <%- include('./partials/date.ejs') %>
+      <h1>The Daily Brew</h1>
+      <div class="coffee-mug">
+        <div class="coffee-container">
+          <div class="coffee"></div>
+        </div>
+      </div>
+    </div>
+    <!-- end of title -->
+
+    <!-- TITLE CONTAINER -->
+
+    <!-- <div class="cardContainer"> -->
+    <div class="carousel">
+      <div class="carousel__cards">
+        <% if (locals.data) { %>
+        <% data.forEach((article)=> { %>
+        <div class="card carousel__card">
+          <div class="card-image">
+            <figure class="image carousel__card">
+              <img class="articleImage" src="<%= article.urlToImage %>" alt="Article image not available.">
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="articleTitle">
+                  <% if(article.title.length > 80) { %>
+                  <%= article.title.substring(0,80)+"..." %>
+                  <% } else { %>
+                  <%= article.title %>
+                  <% } %></p>
+                <p class="subtitle is-6"><%= article.publishedAt.substring(5,7)+'/'+article.publishedAt.substring(8,10)+'/'+article.publishedAt.substring(0,4) %></p>
+              </div>
+            </div>
+            <div class="content">
+              <% if(article.description.length > 200) { %>
+              <%= article.description.substring(0, 200)+"..." %>
+              <% } else { %>
+              <%= article.description %>
+              <% } %>
+              <div class="bottomBox"></div>
+              <a class="card-footer-item" href="<%= article.url %>" target="_blank"><button class="button is-link goToArticleBtn">Go to article</button></a>
+            </div>
+          </div>
+        </div>
+        <!-- </div> -->
+        <% }) %>
+        <% } %>
+      </div>
+    </div>
+    <div class="carousel__control">
+      <button class="carousel__btn carousel__btn--back previous">Previous</button>
+      <button class="carousel__btn carousel__btn--next next">Next</button>
+    </div>
+  </div>
+  <script type="text/javascript" src="/js/client.js"></script>
+  <script type="text/javascript" src="/js/carousel.js"></script>
+  <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>
