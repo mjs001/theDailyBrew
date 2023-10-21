@@ -21,17 +21,21 @@
     <!-- end of title -->
 
     <!-- category btns -->
+
     <div class="categoryContainer">
-      <form method="post" action="/category">
-        <legend>Category:</legend>
-        <fieldset>
-          <input type="radio" name="category" value="general">general</input>
-          <input type="radio" name="category" value="technology">technology</input>
-          <input type="radio" name="category" value="business">business</input>
-          <button class="categoryBtn" type="submit">submit</button>
+      <form id="categoryForm" method="post" action="/category">
+        <p>Category:</p>
+        <fieldset class="radioBtnsContainer">
+          <label><input type="radio" id="general" class="category" name="category" value="general" /><span class="categoryText">General</span></label>
+          <label><input type="radio" id="science" class="category" name="category" value="science" /><span class="categoryText">Science</span></label>
+          <label><input type="radio" id="technology" class="category" name="category" value="technology" /><span class="categoryText">Technology</span></label>
+          <label><input type="radio" id="business" class="category" name="category" value="business" /><span class="categoryText">Business</span></label>
+          <label><input type="radio" id="health" class="category" name="category" value="health" /><span class="categoryText">Health</span></label>
+          <label><input type="radio" id="sports" class="category" name="category" value="sports"><span class="categoryText">Sports</span></label>
         </fieldset>
       </form>
     </div>
+
 
     <!-- CAROUSEL START -->
     <div class="carousel">

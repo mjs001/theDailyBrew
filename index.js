@@ -22,11 +22,8 @@ var month = ("0" + (date.getMonth() + 1)).slice(-2);
 var todaysDate = `${month}-${day}-${year}`;
 
 app.get("/", async (req, res) => {
-    // if category same as old just get localstorage otherwise run new request
-
     var parsedDate = localStorage.getItem("date");
     var parsedStoredData = JSON.parse(localStorage.getItem("storedData"));
-    console.log(newCategory, category);
     if (parsedStoredData !== null && parsedDate === todaysDate && newCategory === category) {
         res.render("index.ejs", {
             data: parsedStoredData
@@ -67,7 +64,6 @@ app.get("/", async (req, res) => {
 })
 
 app.post("/category", (req, res) => {
-    console.log(req.body.category);
     newCategory = req.body.category;
     res.redirect("/");
 })
