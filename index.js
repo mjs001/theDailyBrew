@@ -18,7 +18,7 @@ const limiter = rateLimit({
 })
 
 // Apply the rate limiting middleware to all requests.
-app.use(limiter)
+app.use(limiter);
 app.use(express.static("public"));
 const port = 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
