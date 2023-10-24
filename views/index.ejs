@@ -1,8 +1,4 @@
-<!-- COLOR PALETTE https://colorhunt.co/palette/a75d5dd3756bf0997dffc3a1 -->
-
-
 <%- include('./partials/header.ejs') %>
-
 
 <body>
 
@@ -61,8 +57,8 @@
               </div>
             </div>
             <div class="content">
-              <% if(article.description.length > 200) { %>
-              <%= article.description.substring(0, 200)+"..." %>
+              <% if(article.description.length > 150) { %>
+              <%= article.description.substring(0, 150)+"..." %>
               <% } else { %>
               <%= article.description %>
               <% } %>
@@ -80,9 +76,11 @@
       <button class="carousel__btn carousel__btn--next next">Next</button>
     </div>
   </div>
+  <small class="copyright">© <%= new Date().getFullYear() %> Myco Davenport</small>
+
   <script type="text/javascript" src="/js/client.js"></script>
   <script type="text/javascript" src="/js/carousel.js"></script>
-  <%- include('./partials/footer.ejs') %>
+
 </body>
 
 </html>

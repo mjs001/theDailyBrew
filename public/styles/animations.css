@@ -171,7 +171,8 @@
 .carousel__control {
   display: flex;
   justify-content: center;
-  margin-top: -14px;
+  margin-top: 4px;
+  margin-bottom: 5%;
 
 }
 
@@ -199,7 +200,6 @@
     font-weight: bold;
     font-size: 1.4rem;
     padding-right: 15px;
-    margin-bottom: 8px;
   }
 
   #categoryForm {
