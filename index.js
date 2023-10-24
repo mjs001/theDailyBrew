@@ -8,7 +8,9 @@ global.localStorage = new LocalStorage('./scratch');
 const app = express();
 const limiter = rateLimit({
   windowMs: 43200000, // 12 hours
-  max: 50, // limit each IP to 50 requests per windowMs
+    max: 50, // limit each IP to 50 requests per windowMs
+    standardHeaders: 'draft-7', // draft-6: `RateLimit-*` headers; draft-7: combined `RateLimit` header
+	legacyHeaders: false,
 });
 
 app.use(express.static("public"));
