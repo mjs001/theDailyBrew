@@ -3,22 +3,21 @@ import bodyParser from "body-parser";
 import axios from "axios";
 import 'dotenv/config';
 import { LocalStorage } from "node-localstorage";
-import rateLimit from "express-rate-limit";
+import { rateLimit } from "express-rate-limit";
 global.localStorage = new LocalStorage('./scratch');
 const app = express();
 const limiter = rateLimit({
   windowMs: 43200000, // 12 hours
-  max: 15, // limit each IP to 15 requests per windowMs
+  max: 50, // limit each IP to 50 requests per windowMs
 });
 
-app.use(limiter);
 app.use(express.static("public"));
 const port = 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var currentPage = 1;
 var keyword = "";
-var pageSize = 13;
+var pageSize = 16;
 var apiKey = process.env.API_TOKEN;
 var category = "general";
 var newCategory = "general";
@@ -70,7 +69,7 @@ app.get("/", async (req, res) => {
     }
 })
 
-app.post("/category", (req, res) => {
+app.post("/category", limiter, (req, res) => {
     newCategory = req.body.category;
     res.redirect("/");
 })
