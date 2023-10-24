@@ -37,6 +37,9 @@
     <div class="carousel">
       <div class="carousel__cards">
         <% if (locals.data) { %>
+        <% if (data.length < 1) { %>
+        <p class="error-text">There are too many requests please try again later.</p>
+        <% } %>
         <% data.forEach((article)=> { %>
         <div class="card carousel__card">
           <div class="card-image">
