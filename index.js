@@ -3,21 +3,14 @@ import bodyParser from "body-parser";
 import axios from "axios";
 import 'dotenv/config';
 import { LocalStorage } from "node-localstorage";
+import rateLimit from "express-rate-limit";
 global.localStorage = new LocalStorage('./scratch');
 const app = express();
-import { rateLimit } from 'express-rate-limit'
-
 const limiter = rateLimit({
-	windowMs: 86400000, //  12 hours
-	limit: 15, // Limit each IP to 15 requests per `window` (here, per 12 hours).
-	standardHeaders: 'draft-7', // draft-6: `RateLimit-*` headers; draft-7: combined `RateLimit` header
-    legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
-    message: async (req, res) => {
-		return 'Too many requests. Try again later.'
-	},
-})
+  windowMs: 43200000, // 12 hours
+  max: 15, // limit each IP to 15 requests per windowMs
+});
 
-// Apply the rate limiting middleware to all requests.
 app.use(limiter);
 app.use(express.static("public"));
 const port = 3000;
