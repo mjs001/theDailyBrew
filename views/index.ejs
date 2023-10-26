@@ -60,8 +60,8 @@
               </div>
             </div>
             <div class="content">
-              <% if(article.description.length > 150) { %>
-              <%= article.description.substring(0, 150)+"..." %>
+              <% if(article.description.length > 100) { %>
+              <%= article.description.substring(0, 100)+"..." %>
               <% } else { %>
               <%= article.description %>
               <% } %>
